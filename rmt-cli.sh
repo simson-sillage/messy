@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Completion script for SUSE RMT: rmt-cli
 #
 # COMP_WORDS are all words in the current cli feed
