@@ -30,7 +30,7 @@ _rmt-cli()
 	elif [[ ${subcommand} == help && ${COMP_CWORD} < 3 ]] ; then
 		# show options without 'help'
 		COMPREPLY=( $(compgen -W "${options/help/}" -- ${current_word}) )
-	elif [[ ${subcommand} =~ ^(products|repos|import|export)$ ]] ; then
+	elif [[ ${subcommand} =~ ^(product|products|repo|repos|import|export)$ ]] ; then
 		_rmt-cli_$subcommand
 	fi
 }
@@ -138,6 +138,17 @@ _rmt-cli_export()
 	elif [[ ${COMP_CWORD} == 3 ]] ; then
 		COMPREPLY=( $(compgen -f ${current_word}) )
 	fi
+}
+
+# wrapper functions:
+_rmt-cli_repo()
+{
+	_rmt-cli_repos
+}
+
+_rmt-cli_product()
+{
+	_rmt-cli_products
 }
 
 # helper functions:
